@@ -505,7 +505,7 @@ struct Sequence number_all_lines(struct Sequence *output) {
                 continue;
             }
 
-            int line_len = jp != 0 ?
+            int line_len = buff[jp] == '\n' ?
                 plsize + nsize + 3 : plsize + nsize + 4;
 
             char* line = (char*)malloc(line_len);
@@ -515,8 +515,8 @@ struct Sequence number_all_lines(struct Sequence *output) {
             line[nsize] = ' '; // paddng after
             line[nsize + 1] = ' ';
            
-            const char *start = jp != 0 ? buff + jp + 1 : buff;
-            int amount = jp != 0 ? plsize : plsize + 1;
+            const char *start = buff[jp] == '\n' ? buff + jp + 1 : buff;
+            int amount = buff[jp] == '\n' ? plsize : plsize + 1;
             memcpy(line + nsize + 2, start, amount); // line itself
             line[line_len - 1] = '\0';
 
@@ -554,7 +554,7 @@ struct Sequence number_all_nonempty_lines(struct Sequence *output) {
                     continue;
                 }
 
-                int line_len = jp != 0 ?
+                int line_len = buff[jp] == '\n' ?
                     plsize + nsize + 3 : plsize + nsize + 4;
 
                 char* line = (char*)malloc(line_len);
@@ -564,8 +564,8 @@ struct Sequence number_all_nonempty_lines(struct Sequence *output) {
                 line[nsize] = ' '; // paddng after
                 line[nsize + 1] = ' ';
 
-                const char *start = jp != 0 ? buff + jp + 1 : buff;
-                int amount = jp != 0 ? plsize : plsize + 1;
+                const char *start = buff[jp] == '\n' ? buff + jp + 1 : buff;
+                int amount = buff[jp] == '\n' ? plsize : plsize + 1;
                 memcpy(line + nsize + 2, start, amount); // line itself
                 line[line_len - 1] = '\0';
 
