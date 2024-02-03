@@ -1,5 +1,5 @@
-#ifndef STR_SEQUENCE
-#define STR_SEQUENCE
+#ifndef STR_ARRAY
+#define STR_ARRAY
 
 #include <stdio.h>
 
@@ -11,4 +11,4 @@ struct StrArray {
 void free_StrArray_strs(struct StrArray);
 void print_StrArray(struct StrArray); 
 
-#endif // !STR_SEQUENCE
+#endif // !STR_ARRAY

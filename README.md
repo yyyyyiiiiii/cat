@@ -1,2 +1,2 @@
-# my-cat
-just cat
+# 🐈
+Just cat

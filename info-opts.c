@@ -8,7 +8,6 @@ void print_OPT_help() {
 	const char *strs[] = {
 		"Usage: cat [OPTION]... [FILE]...",
 		"Concatenate FILE(s) to standard output.",
-		"With no FILE, or when FILE is -, read standard input.",
 		"  -A, --show-all           equivalent to -vET",
 		"  -b, --number-nonblank    number nonempty output lines, overrides -n",
 		"  -e                       equivalent to -vE",
