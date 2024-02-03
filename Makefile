@@ -1,11 +1,12 @@
 CC := gcc
 name := my-cat
+src := $(wildcard *.c) $(wildcard *.h)
 
 .PHONY: all, clean
 
 all: $(name)
 
-$(name): $(name).c
+$(name): $(src)
 	$(CC) -g -o $@ $^ -lm
 
 clean:
