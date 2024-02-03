@@ -9,6 +9,8 @@ void free_File_content(struct File file) {
 }
 
 void free_FileArray_files(struct FileArray farray) {
+	if (farray.amount == 0) return;
+
 	for (int i = 0; i < farray.amount; i++) {
 		free_File_content(farray.files[i]);
 	}
@@ -52,6 +54,13 @@ struct File get_file(const char *fname) {
 }
 
 struct FileArray get_files(struct StrArray fnames) {
+	if (fnames.amount == 0) {
+		return (struct FileArray) {
+			.files = NULL,
+			.amount = 0
+		};
+	}
+
 	struct FileArray farray = {
 		.files = (struct File*)malloc(fnames.amount * sizeof(struct File)),
 		.amount = fnames.amount

@@ -13,7 +13,7 @@ void print_StrArray(struct StrArray sarray) {
 }
 
 void free_StrArray_strs(struct StrArray sarray) {
-	if (sarray.strs == NULL) return;
+	if (sarray.amount == 0) return;
 
 	for (size_t i = 0; i < sarray.amount; i++) {
 		free(sarray.strs[i]);

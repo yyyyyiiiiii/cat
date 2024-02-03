@@ -145,6 +145,6 @@ struct OptArray get_OptArray(struct StrArray opts) {
 }
 
 void free_OptArray_options(struct OptArray opta) {
-	free(opta.options);
+	if (opta.options != NULL) free(opta.options);
 }
 

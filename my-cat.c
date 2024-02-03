@@ -22,7 +22,7 @@ int main(int argc, char **argv) {
 
 	if (opta.amount == 1 && is_info_opt(opta.options[0])) {
 		print_info_opt(opta.options[0]);
-	} else {
+	} else if (farray.amount != 0) {
 		struct FileArray fparsed = parse(farray, opta);
 		print_FileArray(fparsed);
 		free_FileArray_files(fparsed);
