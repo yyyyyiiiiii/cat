@@ -1,2 +1,1 @@
-# 🐈
-Just cat
+# just 🐈
