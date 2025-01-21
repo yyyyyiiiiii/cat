@@ -9,11 +9,13 @@ bool FILE_ptr_array_feof(FILE_ptr_array_ctx_t *ctx) {
   const size_t count = ctx->array.count;
   while (ctx->index + 1 < count && feof(ctx->array.data[ctx->index]))
     ctx->index++;
-  return !(ctx->index + 1 < count) && feof(ctx->array.data[ctx->index]);
+  return !(ctx->index < count) || feof(ctx->array.data[ctx->index]);
 }
 
 char FILE_ptr_array_get(FILE_ptr_array_ctx_t *ctx) {
   const size_t count = ctx->array.count;
+  if (ctx->index >= count)
+    return EOF;
   FILE* file = ctx->array.data[ctx->index];
   char ch = fgetc(file);
   while (feof(file) && ctx->index + 1 < count) {
@@ -25,6 +27,8 @@ char FILE_ptr_array_get(FILE_ptr_array_ctx_t *ctx) {
 }
 
 void FILE_ptr_array_unget(FILE_ptr_array_ctx_t *ctx, char ch) {
+  if (ctx->index >= ctx->array.count)
+    return;
   FILE* file = ctx->array.data[ctx->index];
   ungetc(ch, file);
 }
