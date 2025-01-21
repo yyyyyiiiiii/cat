@@ -28,10 +28,9 @@ static const char *kHelp =
   "  cat        Copy standard input to standard output.\n";
 
 static const char *kVersion =
-  "cat 2.0\n"
-  "Copyright (C) 2024 Free Software Foundation, Inc.\n"
-  "License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.\n"
-  "his is free software: you are free to change and redistribute it.\n"
+  "cat v2\n"
+  "License MIT.\n"
+  "This is free software: you are free to change and redistribute it.\n"
   "There is NO WARRANTY, to the extent permitted by law.\n";
 
 #define END_OF_FLAGS(arg) (strcmp(arg, "--") == 0)
